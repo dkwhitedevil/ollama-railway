@@ -1,12 +1,5 @@
 {
   "build": {
-    "builder": "DOCKER"
-  },
-  "deploy": {
-    "startCommand": "serve",
-    "restartPolicyType": "ON_FAILURE"
-  },
-  "platform": {
-    "engine": "docker"
+    "dockerfilePath": "Dockerfile"
   }
 }
