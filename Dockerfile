@@ -1,8 +1,11 @@
 FROM ollama/ollama:latest
 
-# Start Ollama server in background and pull model
-RUN /bin/sh -c "ollama serve & sleep 5 && ollama pull granite3.1-micro"
-
+# Expose Ollama API port
 EXPOSE 11434
 
-CMD ["serve"]
+# When the container starts, pull the model THEN start server
+CMD /bin/sh -c "\
+    ollama serve & \
+    sleep 10 && \
+    ollama pull granite3.1-micro && \
+    wait"
