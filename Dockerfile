@@ -1,10 +1,8 @@
 FROM ollama/ollama:latest
 
-# Pull your model when container builds
-RUN ollama pull qwen2.5:0.5b
+# Pull a small model that fits Railway free tier
+RUN ollama pull granite3.1-micro
 
-# Expose Ollama server
 EXPOSE 11434
 
-# Start Ollama server
 CMD ["serve"]
